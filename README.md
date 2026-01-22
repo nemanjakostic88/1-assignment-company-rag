@@ -1,30 +1,15 @@
+# 0. Important Note
+My colleague Milos and I worked together on this task. This is just a dockerized version. Considering that my colleague Milos has already recorded a video, I will not make it and upload the same so as not to waste my time and yours.
 # 1. Setup Environment
-## Create virtual environment
-python -m venv venv
-
-source venv/bin/activate  # or `venv\Scripts\activate` on Windows
-
-## Install all dependencies
-pip install -r requirements.txt
-
-## Configure API Keys
+## Setup virtual environment
+docker-compose build --no-cache
+## Setup Python environment
 Copy .env.sample to .env file in the root directory and set variables
-
-OPENAI_API_KEY=sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-MONGO_DB_URL=
-
-LANGCHAIN_TRACING_V2=true
-
-LANGCHAIN_API_KEY=lsv2_pt_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-LANGCHAIN_PROJECT=rag-company
-
 # 2. Enter data
-python ingestion.py
+docker-compose run --rm app ingestion.py
 # 3. Ask questions
-python generation.py
+docker-compose run --rm app generation.py
 # 4. See Improvement from filtering
-python precision_delta.py
+docker-compose run --rm app precision_delta.py
 
 
