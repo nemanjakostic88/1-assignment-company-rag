@@ -1,0 +1,7 @@
+langchain
+langchain-openai
+langchain-mongodb
+langchain-text-splitters
+pymongo
+python-dotenv
+certifi
